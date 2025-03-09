@@ -8,4 +8,10 @@ plugin_dir=$(dirname "$(dirname "$current_script_path")")
 # shellcheck source=./lib/utils.bash
 source "${plugin_dir}/lib/utils.bash"
 
+cd "$ASDF_DOWNLOAD_PATH"
+echo "golang 1.24.1" > .tool-versions
+/home/runner/.asdf/bin/asdf plugin add golang
+/home/runner/.asdf/bin/asdf install
+
+./build-without-openssl.bash
 install_version "$ASDF_INSTALL_TYPE" "$ASDF_INSTALL_VERSION" "$ASDF_INSTALL_PATH"
